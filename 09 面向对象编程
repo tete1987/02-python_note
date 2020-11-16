@@ -1,0 +1,83 @@
+九、面向对象编程
+（一）什么是面向对象?
+1.python是一门面向对象的语言。
+所谓的面向对象，就是在编程的时候尽可能的与模拟真实的现实世界，按照现实世界中的逻辑去处理问题，分析问题中参与其中的有哪些实体，这些实体应该是有什么属性和方法，我们如何通过调用这些实体的属性和方法去解决问题。
+
+2.面向对象程序设计规则
+1）首先分析有哪些类
+2）每个类有哪些属性和行为
+3）类与类之间存在的关系
+
+3.类、方法、类变量的定义
+类（class）：用来描述具有相同的属性和方法的对象的集合。它定义了集合中每个对象所共有的属性和方法。对象时类的实例。
+方法：类中定义的函数。类的方法与普通的函数只有一个特别的区别——它们必须有一个额外的第一个参数名称，按照惯例它的名称是self（其实取什么名字不重要，只是有这个参数就行，默认系统叫self）。
+类变量：类变量在整个实例化的对象中是公用的。类变量定义在类中且在函数体之外。类变量通常不作为实例变量使用。
+
+示例：
+class Person():
+    #类的属性
+    name = "noname"
+    #方法：
+    def get_name(self):
+        return self.name
+
+print(Person.name)
+
+#实例化的过程：
+p = Person()
+print(p.name)
+#调用方法
+print(p.get_name())
+
+#重新赋值：
+p.name = "lili"
+print(p.get_name())
+
+#重新定义Person类的属性值：
+Person.name = "huahua"
+f = Person()
+print(f.get_name())
+
+
+
+（二）实例引用、实例变量使用
+1.实例引用、实例变量
+1）实例：类的一个具体对象，比如，车类是一个类，摩托车或者自行车就是车类的一个实例。类是抽象的，实例是具体的。
+2）实例引用：给一个对象起一个别名，比如a是对象，b 是a的引用，则a和b的地址空间都是一样的，修改b，则a就同时被修改。
+3）实例变量：实例属性，在任意方法内部，已 “self.变量名”的方式定义的变量。实例变量只能通过对象名访问，无法通过类名访问。
+
+示例：
+class Person:
+    def __init__(self,name,age,gender):
+        #实例属性
+        self.name = name
+        self.gender = gender
+        self.age = age
+
+    def eat(self):
+        print(f"name : {self.name},age : {self.age},gender : {self.gender} 我在吃")
+
+    def drink(self):
+        print(f"name : {self.name},age : {self.age},gender : {self.gender} 我在喝")
+
+    def run(self):
+        print(f"name : {self.name},age : {self.age},gender : {self.gender} 我在跑")
+
+    def set_att(self,value):
+        self.value = value
+
+
+#实例化的过程
+xiaoming = Person("xiaoming",10,"male")
+xiaohong = Person("xiaohong",28,"female")
+
+print(xiaoming.name)
+#调用方法
+xiaoming.drink()
+xiaoming.eat()
+
+xiaoming.set_att("hallo")
+print(xiaoming.value)
+
+xiaohong.drink()
+xiaohong.run()
