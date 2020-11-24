@@ -1,0 +1,36 @@
+十八、参数化用例
+（一）pytest数据参数化
+1.参数化使用
+@pytest.mark.parametrize(argnames,argvalues)
+argnames：要参数化的变量，string（逗号分割），list，tuple
+argvalues：参数化的值，list，list[tuple]
+1）使用string
+class TestData():
+    @pytest.mark.parametrize("a,b",[(10,20),(10,30)])
+    def test_param(self,a,b):
+        print(a+b)
+
+2）使用list
+class TestData():
+    @pytest.mark.parametrize(["a","b"],[(10,20),(10,30)])
+    def test_param(self,a,b):
+         print(a+b)
+
+3）使用tuple
+class TestData():
+     @pytest.mark.parametrize(("a","b"),[(10,20),(10,30)])
+     def test_param(self,a,b):
+         print(a+b)
+
+
+
+（二）yaml的基本使用
+yaml.safe_load：打开某个yaml文件
+import pytest
+import yaml
+
+class TestData():
+    @pytest.mark.parametrize(("a","b"),yaml.safe_load(open("./data.yaml")))
+    def test_data(self,a,b):
+        print(a+b)
+
