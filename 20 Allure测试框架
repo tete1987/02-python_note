@@ -205,7 +205,126 @@ pytest test_allure_link.py --allure-link-pattern=issur:http://192.168.124.120/ze
 allure serve ./result/8
 
 
+（八）allure按重要性级别进行一定范围测试
+1.场景：
+通常测试有P0、冒烟测试、验证上线测试。按重要性级别来分别执行的，比如上线要把主流程和重要模块都跑一遍。
+2.解决：
+通过附加pytest.mark标记
+通过allure.feature，allure.story
+也可以通过allure.severity来附加标记
+级别：Trivial：不重要，Minor：不太重要，Normal：正常问题，Critical：严重，Blocker：阻塞
+3.步骤：在方法上面加 @allure.severity(allure_serverity_level.TRIVIAL)
+4.执行时：pytest -s -v 文件名 --allure-serverities normal,critical
 
-（八）allure+pytest+selenium 实战演示
+5.示例：
+import allure
+import pytest
 
-（九）allure+pytest+selenium 实战演示
+class TestLevel():
+    def test_no_lable(self):
+        pass
+
+    @allure.severity(allure.severity_level.TRIVIAL)
+    def test_trival(self):
+        print("这是一个trivial类的测试用例")
+        pass
+
+    @allure.severity(allure.severity_level.CRITICAL)
+    def test_critical(self):
+        print("这是一个critical类的测试用例")
+        pass
+
+    @allure.severity(allure.severity_level.NORMAL)
+    def test_normal(self):
+        print("这是一个normal类的测试用例")
+        pass
+
+if __name__ == '__main__':
+    pytest.main()
+
+
+在终端里执行：
+pytest test_allure_level.py --alluredir=./result/11 --allure-severities normal
+allure serve ./result/11
+
+
+6.前端自动化测试-截图
+示例：
+import pytest
+import allure
+
+def test_attach_text():
+    allure.attach("这是一个纯文本",attachment_type=allure.attachment_type.TEXT)
+
+def test_attach_html():
+    allure.attach("这是一个html",attachment_type=allure.attachment_type.HTML)
+
+def test_attach_photo():
+    allure.attach.file("D:\Test\微信截图_20200911163252.png",name="这是一个图片",attachment_type=allure.attachment_type.PNG)
+
+
+以上代码执行之后可以执行，但会报warning，因为有 d\ ，所以需要在前面加 r ，就不会报了，如下：
+import pytest
+import allure
+
+def test_attach_text():
+    allure.attach("这是一个纯文本",attachment_type=allure.attachment_type.TEXT)
+
+def test_attach_html():
+    allure.attach("这是一个html",attachment_type=allure.attachment_type.HTML)
+
+def test_attach_photo():
+    allure.attach.file(r"D:\Test\微信截图_20200911163252.png",name="这是一个图片",attachment_type=allure.attachment_type.PNG)
+
+
+（十）allure+pytest+selenium 实战演示
+1.原代码：
+import allure
+import pytest
+from selenium import webdriver
+import time
+import selenium
+
+@pytest.mark.parametrize('data',['allure','test','pytest'])
+def test_step_demo(data):
+    driver = webdriver.Chrome()
+    driver.get("https://www.baidu.com/")
+
+    driver.find_element_by_id("kw").send_keys(data)
+    time.sleep(1)
+    driver.find_element_by_id("su").click()
+    time.sleep(1)
+
+    driver.save_screenshot("./result/b.png")
+    allure.attach.file("./result/b.png",attachment_type=allure.attachment_type.PNG)
+    allure.attach("<head></head><body>首页<body>",'Attach with HTML type',allure.attachment_type.HTML)
+    driver.quit()
+
+
+2.优化代码：
+import allure
+import pytest
+from selenium import webdriver
+import time
+import selenium
+
+@allure.feature('百度搜索')
+@pytest.mark.parametrize('data',['allure','test','pytest'])
+def test_step_demo(data):
+    with allure.step('打开百度'):
+        driver = webdriver.Chrome()
+        driver.get("https://www.baidu.com/")
+
+    with allure.step('输入关键词，并进行点击'):
+        driver.find_element_by_id("kw").send_keys(data)
+        time.sleep(1)
+        driver.find_element_by_id("su").click()
+        time.sleep(1)
+
+    with allure.step('进行截图'):
+        driver.save_screenshot("./result/b.png")
+        allure.attach.file("./result/b.png",attachment_type=allure.attachment_type.PNG)
+        allure.attach("<head></head><body>首页<body>",'Attach with HTML type',allure.attachment_type.HTML)
+
+    with allure.step('关闭浏览器'):
+        driver.quit()
