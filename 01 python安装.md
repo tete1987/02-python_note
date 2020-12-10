@@ -1,7 +1,7 @@
 # 一、python语言基础
 ## （一）Python历史
 
-![image](280B72F4C83E4FC48C590353A7133675)
+![python历史](https://github.com/tete1987/picture_resource/blob/master/python%E5%8E%86%E5%8F%B2.png)
 
 ## （二）Python的安装
 1.官方地址下载python安装包：https://www.python.org
@@ -14,7 +14,7 @@ python安装文档（Windows系统）：https://testing-studio.com/t/topic/57/4
 
 `ln -f /user/local/bin/python3.8 /user/local/bin/python`
 
-![image](507CB81CA4234182AE6C8456EF99C49F)
+![pyhton-软连接](https://github.com/tete1987/picture_resource/blob/master/pyhton-%E8%BD%AF%E8%BF%9E%E6%8E%A5.png)
 
 
 3.mac或linux环境修改环境变量：
@@ -47,7 +47,7 @@ pip install 报名==版本号
 
 例：pip install selenium==2.39.0
 
-![image](B2C274041AA644C381765864757A241B)
+![python-安装selenium](https://github.com/tete1987/picture_resource/blob/master/python-%E5%AE%89%E8%A3%85selenium.png)
 
 pip install i 镜像地址 --trusted-host 镜像地址对应的host
 
