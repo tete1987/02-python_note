@@ -5,7 +5,7 @@
 - module
 - function
 
-https://github.com/tete1987/picture_resource/blob/master/python%E6%A8%A1%E5%9D%972.png
+![python模块](https://github.com/tete1987/picture_resource/blob/master/python%E6%A8%A1%E5%9D%972.png)
 
 ## 2.定义：
 模块是在代码量变得相当大了之后，为了将需要重复使用的有组织的代码放在一起，这部分代码可以被其他程序引用，从而使用该模块里的函数等功能，引用的过程叫做导入（import）
