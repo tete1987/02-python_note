@@ -9,14 +9,14 @@
 2）什么是异常
 - 异常即是一个事件，该事件会在程序执行过程中发送，影响了程序的正常执行。
 - 有些是由于拼写、配置、选项等等各种引起的程序错误，有些是由于程序功能处理逻辑不完善引起的漏洞，这些统称为程序中的异常。
-![image](BB5DCB757C574D7485AD912D404E037A)
+![python异常](https://github.com/tete1987/picture_resource/blob/master/python%E5%BC%82%E5%B8%B8.png)
 
 ## （二）异常捕获、异常处理
 ### 1.异常解决方案：
 - 如果是拼写、配置等引起的错误，根据出错的信息进行排查错误出现的位置进行解决
 - 如果是程序设计不完善引起的漏洞，根据漏洞的情况进行设计处理漏洞的逻辑
 
-![image](EF7EE1CF58D74DEFA2F8FE912993C2C2)
+![python异常捕获](https://github.com/tete1987/picture_resource/blob/master/python%E5%BC%82%E5%B8%B8%E6%8D%95%E8%8E%B7.png)
 
 示例：
 ```
