@@ -12,7 +12,7 @@
 2）定义一个fight 方法：
 - final_hp = hp - enemy_power
 - enemy_final_hp = enemy_hp - power
-- 
+ 
 两个hp 进行对比，血量剩余多的人获胜
 ```
 #定义game 类
