@@ -162,3 +162,65 @@ print(i.sub(4,7))
 - 提高代码的可维护性
 一个模块编写完毕后，其他模块直接调用，不用再从零开始写代码了，节约了工作-时间。
 - 避免函数名和变量名称重复，在不同的模块中可以存在相同名字的函数名和变量名（不要和系统内置的模块名称重复）
+
+7.反射
+- 根据字符串的形式去某个模块中寻找东西—— getattr()
+- 根据字符串的形式去某个模块中判断东西是否存在——hasattr()，返回布尔值
+- 根据字符串的形式去某个模块中设置东西——setattr()
+- 根据字符串的形式去某个模块中删除东西——delattr()
+
+1）示例1，例如一个login.py 文件中内容如下：
+```python
+def index():
+    print("欢迎进入XXX系统")
+
+def login():
+    print("已登录系统")
+
+def logout():
+    print("已退出系统")
+```
+
+
+2）通过__import__ 导入目标模块，并且放在一个对象中
+```python
+f = __import__('login')
+
+#通过对象找login模块中index的字符串并且调用
+
+f.index()
+```
+3）使用getter获取 login 模块中的logout函数
+```python
+import login
+f = getattr(login,"logout")
+f()
+```
+
+4)根据字符串的形式去某个模块中判断东西是否存在——hasattr()，返回布尔值
+```python
+import login
+
+obj = login.Person()
+
+if hasattr(obj,'person_info'):
+    f = getattr(obj,'person_info')
+    f()
+else:
+    print("没找到")
+
+```
+
+5）删除不会真的删除模块中的字符串
+```python
+f0 = hasattr(login,"str1")
+print("未删除之前：",f0)
+f1 = delattr(login,"str1")
+f2 = hasattr(login,"str1")
+print("删除之后：",f2)
+```
+
+2）反射案例
+
+![python反射](https://github.com/tete1987/picture_resource/blob/master/python%E5%9B%BE/python%E5%8F%8D%E5%B0%84.png)
+
