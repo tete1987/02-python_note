@@ -14,3 +14,7 @@
 - [08 python错误与异常](https://github.com/tete1987/03-python/blob/master/08%20python%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8.md)
 - [09 面向对象编程](https://github.com/tete1987/03-python/blob/master/09%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.md)
 - [10 Python脚本编写实战](https://github.com/tete1987/03-python/blob/master/10%20Python%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99%E5%AE%9E%E6%88%98.md)
+- [11 python标准库](https://github.com/tete1987/03-python/blob/master/11%20python%E6%A0%87%E5%87%86%E5%BA%93.md)
+- [12 python多线程](https://github.com/tete1987/03-python/blob/master/12%20python%E5%A4%9A%E7%BA%BF%E7%A8%8B.md)
+- [13 Python第三方库介绍](https://github.com/tete1987/03-python/blob/master/13%20Python%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E4%BB%8B%E7%BB%8D.md)
+- [14 python外部数据源文件处理](https://github.com/tete1987/03-python/blob/master/14%20python%E5%A4%96%E9%83%A8%E6%95%B0%E6%8D%AE%E6%BA%90%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86.md)
