@@ -1,10 +1,10 @@
 # 03-python知识
-# 一、python语言基础
-## （一）Python历史
+## 一、python语言基础
+### （一）Python历史
 
 ![python历史](https://github.com/tete1987/picture_resource/blob/master/python%E5%8E%86%E5%8F%B2.png)
 
-## （二）Python的安装
+### （二）Python的安装
 1.官方地址下载python安装包：https://www.python.org
 
 python安装文档（Windows系统）：https://testing-studio.com/t/topic/57/4
@@ -63,6 +63,7 @@ pip install i 镜像地址 --trusted-host 镜像地址对应的host
 - 豆瓣：http://pypi.douban.com/simple
 
 
+### 笔记链接
 
 - [02 python基本语法](https://github.com/tete1987/03-python/blob/master/02%20python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.md)
 
